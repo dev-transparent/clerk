@@ -9,7 +9,7 @@ TODO: Write a description here
    ```yaml
    dependencies:
      turso:
-       github: garymardell/turso
+       github: dev-transparent/turso
    ```
 
 2. Run `shards install`
