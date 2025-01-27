@@ -1,0 +1,13 @@
+name: turso
+version: 0.1.0
+
+authors:
+  - Gary Mardell <info@garymardell.co.uk>
+
+dependencies:
+  habitat:
+    github: luckyframework/habitat
+
+crystal: '>= 1.14.0'
+
+license: MIT
