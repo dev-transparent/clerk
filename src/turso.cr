@@ -1,4 +1,5 @@
 require "habitat"
+require "json"
 
 module Turso
   Habitat.create do
