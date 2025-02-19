@@ -7,6 +7,10 @@ authors:
 dependencies:
   habitat:
     github: luckyframework/habitat
+  db:
+    github: crystal-lang/crystal-db
+  webmock:
+    github: manastech/webmock.cr
 
 crystal: '>= 1.14.0'
 
