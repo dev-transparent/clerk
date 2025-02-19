@@ -11,7 +11,7 @@ module Turso
     @[JSON::Field(key: "Name")]
     property name : String
 
-    def self.create(group : String, name : String)
+    def self.create(group : String, name : String) : Turso::Database
       response = Turso.pool.checkout do |client|
         client.post(
           path: "/v1/organizations/#{Turso.settings.organization}/databases",
@@ -22,7 +22,14 @@ module Turso
         )
       end
 
-      (Turso::DatabaseResponse | Turso::ErrorResponse).from_json(response.body)
+      response = (Turso::DatabaseResponse | Turso::ErrorResponse).from_json(response.body)
+
+      case response
+      in Turso::DatabaseResponse
+        response.database
+      in Turso::ErrorResponse
+        raise Turso::Error.new(response.error)
+      end
     end
   end
 end

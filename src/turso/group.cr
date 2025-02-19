@@ -20,7 +20,14 @@ module Turso
         )
       end
 
-      (Turso::GroupResponse | Turso::ErrorResponse).from_json(response.body)
+      response = (Turso::GroupResponse | Turso::ErrorResponse).from_json(response.body)
+
+      case response
+      in Turso::GroupResponse
+        response.group
+      in Turso::ErrorResponse
+        raise Turso::Error.new(response.error)
+      end
     end
   end
 end
