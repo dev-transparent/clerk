@@ -64,7 +64,7 @@ describe Turso::Group do
       end
 
       expect_raises Turso::Error, "Failed to create group" do
-        pp Turso::Group.create(location: "iad", name: "default")
+        Turso::Group.create(location: "iad", name: "default")
       end
     end
   end
