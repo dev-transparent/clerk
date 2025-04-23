@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Clerk::User do
   describe ".get" do
     it "retrieves a user" do
-      WebMock.stub(:get, "https://api.clerk.com/users/1")
+      WebMock.stub(:get, "https://api.clerk.com/v1/users/1")
         .with(
           headers: {
             "Authorization" => "Bearer token",
@@ -32,7 +32,7 @@ describe Clerk::User do
     end
 
     it "handles errors" do
-      WebMock.stub(:get, "https://api.clerk.com/users/1")
+      WebMock.stub(:get, "https://api.clerk.com/v1/users/1")
         .with(
           headers: {
             "Authorization" => "Bearer token",
