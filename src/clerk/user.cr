@@ -20,7 +20,7 @@ module Clerk
     def self.get(user_id : String) : Clerk::User
       response = Clerk.pool.checkout do |client|
         client.get(
-          path: "/users/#{user_id}"
+          path: "/v1/users/#{user_id}"
         )
       end
 
