@@ -3,10 +3,9 @@ require "habitat"
 require "json"
 require "http/client"
 
-module Turso
+module Clerk
   Habitat.create do
-    setting url : String = "https://api.turso.tech"
-    setting organization : String
+    setting url : String = "https://api.clerk.com"
     setting token : String
   end
 
@@ -14,10 +13,10 @@ module Turso
 
   def self.pool : DB::Pool(HTTP::Client)
     @@pool ||= DB::Pool.new {
-      client = HTTP::Client.new(URI.parse(Turso.settings.url))
+      client = HTTP::Client.new(URI.parse(Clerk.settings.url))
 
       client.before_request do |request|
-        request.headers["Authorization"] = "Bearer #{Turso.settings.token}"
+        request.headers["Authorization"] = "Bearer #{Clerk.settings.token}"
         request.headers["Content-Type"] = "application/json"
       end
 
@@ -26,4 +25,4 @@ module Turso
   end
 end
 
-require "./turso/*"
+require "./clerk/*"

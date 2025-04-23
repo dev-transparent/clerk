@@ -1,4 +1,4 @@
-name: turso
+name: clerk
 version: 0.1.0
 
 authors:
@@ -12,6 +12,6 @@ dependencies:
   webmock:
     github: manastech/webmock.cr
 
-crystal: '>= 1.14.0'
+crystal: ">= 1.14.0"
 
 license: MIT
