@@ -1,12 +1,4 @@
 module Clerk
-  struct EmailAddress
-    include JSON::Serializable
-
-    property id : String
-    property object : String
-    property email_address : String
-  end
-
   struct User
     include JSON::Serializable
 
@@ -15,6 +7,7 @@ module Clerk
     property username : String?
     property first_name : String?
     property last_name : String?
+    property primary_email_address_id : String?
     property email_addresses : Array(EmailAddress)
 
     def self.get(user_id : String) : Clerk::User
